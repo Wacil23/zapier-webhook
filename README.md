@@ -29,6 +29,30 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## Configuration
+
+### Variables d'environnement
+
+Créez un fichier `.env.local` avec les variables suivantes :
+
+#### Dash OAuth
+- `DASH_CLIENT_ID` : Votre client ID Dash
+- `DASH_CLIENT_SECRET` : Votre client secret Dash
+- `DASH_REFRESH_TOKEN` : Votre refresh token Dash
+- `DASH_REDIRECT_URI` : L'URI de redirection pour OAuth
+
+#### WhatsApp Business API
+- `WHATSAPP_API_URL` : URL de l'API WhatsApp (ex: `https://graph.facebook.com/v18.0`)
+- `WHATSAPP_PHONE_NUMBER_ID` : ID de votre numéro de téléphone WhatsApp Business
+- `WHATSAPP_ACCESS_TOKEN` : Token d'accès WhatsApp Business
+- `WHATSAPP_GROUP_ID` : ID du groupe WhatsApp où envoyer les messages
+
+### Webhook Dash
+
+L'endpoint webhook est disponible à : `/api/webhook/dash`
+
+Configurez ce webhook dans votre compte Dash pour recevoir les événements. Lorsqu'un événement "new asset" est reçu, un message WhatsApp sera automatiquement envoyé au groupe configuré.
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
