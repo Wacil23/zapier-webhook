@@ -14,7 +14,6 @@ export async function POST() {
   }
 
   if (refreshing) {
-    // Attendre pendant qu’un refresh est en cours
     await new Promise((r) => setTimeout(r, 500));
     return NextResponse.json({ access_token: tokenCache?.access_token });
   }
@@ -26,6 +25,8 @@ export async function POST() {
     refresh_token: process.env.DASH_REFRESH_TOKEN!,
     client_id: process.env.DASH_CLIENT_ID!,
     client_secret: process.env.DASH_CLIENT_SECRET!,
+    // 👇 Ajout essentiel pour Dash
+    scope: "offline_access subdomain:mysadaka assets:read assets:write",
   });
 
   const r = await fetch("https://login.dash.app/oauth/token", {
